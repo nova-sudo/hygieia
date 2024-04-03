@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Mono&family=Pixelify+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Flow+Rounded&family=Nova+Mono&family=Pixelify+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=League+Gothic&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Six+Caps&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#placeholder {
+  position: absolute;
+  left: 490px;
+  top: 160px;
+  width: 430px;
+  height: 430px;
+  border-radius: 10px;
+  background: #ffffff;
+  background-blend-mode: normal;
+  
+}
+
+#signUp {
+  position: absolute;
+  left: 94px;
+  top: 38px;
+  width: 247px;
+  height: 52px;
+ 
+  
+  font-size: 42px;
+  
+  line-height: 52px;
+  text-align: center;
+  letter-spacing: -0.4px;
+}
+
+#middle-Dar {
+  position: absolute;
+  left: 50px;
+  top: 140px;
+  width: 330px;
+  height: 50px;
+}
+
+#rectangleS1 {
+  position: absolute;
+  left: 47px;
+  top: 170px;
+  width: 330px;
+  height: 50px;
+  border-radius: 20px;
+  border: solid #ebeaed;
+}
+#rectangleS2 {
+  position: absolute;
+  left: 47px;
+  top: 260px;
+  width: 330px;
+  height: 50px;
+  border-radius: 20px;
+  border: solid #ebeaed;
+}
+#iagreetoth {
+  position: absolute;
+  left: 100px;
+  top: 418px;
+  width: 228px;
+  height: 26px;
+  color: rgba(21,20,57,0.4);
+ 
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+}
+#On {
+  position: absolute;
+  left: 70px;
+  top: 420px;
+  width: 20px;
+  height: 20px;
+}
+#rectangleS4 {
+  position: absolute;
+  left: 47px;
+  top: 340px;
+  width: 330px;
+  height: 50px;
+  border-radius: 20px;
+  border: solid #ebeaed;
+}
+#rectangleS3 {
+  position: absolute;
+  left: 190px;
+  top: 340px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+ color:#EDFFFD;
+ 
+  background-blend-mode: normal;
+}
+
+#userlabel {
+  position: absolute;
+  left: -13px;
+  top: 145px;
+  width: 238px;
+  height: 26px;
+  
+ 
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+}
+#emaillabel {
+  position: absolute;
+  left: -13px;
+  top: 320px;
+  width: 230px;
+  height: 26px;
+  
+ 
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+}
+#passlabel {
+  position: absolute;
+  left: -13px;
+  top: 240px;
+  width: 228px;
+  height: 26px;
+  
+ 
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+}
+
+
+

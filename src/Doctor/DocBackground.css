@@ -1,0 +1,122 @@
+
+#docbG{
+  position: absolute;
+  left:350px;
+  top:100px;
+  color: #FFA1F5;
+}
+
+#docEllipse1 {
+  position: absolute;
+  left: -390px;
+  top: 200px;
+  width:  900px;
+  height:  900px;
+  background: #0C0C0C;
+  background-blend-mode: normal;
+  filter: blur(100px);
+  animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-name: move1;
+    border-radius: 50%;
+
+   
+}
+#docEllipse2 {
+  position: absolute;
+  left:-390px;
+  top: -500px;
+  width:  900px;
+  height:  900px;
+  background: #481E14;
+  background-blend-mode: normal;
+  filter: blur(100px);
+  animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-name: move2;
+    border-radius: 50%;
+   
+}
+#docEllipse3 {
+  position: absolute;
+  left: 350px;
+  top: 200px;
+  width: 900px;
+  height: 900px;
+  background: #9B3922;
+  background-blend-mode: normal;
+  filter: blur(100px);
+  animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-name: move3;
+   border-radius: 50%;
+}
+#docEllipse4 {
+  position: absolute;
+  left: 347px;
+  top: -499px;
+  width: 900px;
+  height: 900px;
+  background: #F2613F;
+  background-blend-mode: normal;
+  filter: blur(100px);
+  animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-name: move4;
+  border-radius: 50%;
+}
+
+
+@keyframes move1 {
+    0% { transform: rotate(0deg) translateX(200px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(200px) rotate(-360deg); }
+  }
+  
+  @keyframes move2 {
+    0% { transform: rotate(90deg) translateX(200px) rotate(-90deg); }
+    100% { transform: rotate(450deg) translateX(200px) rotate(-450deg); }
+  }
+  
+  @keyframes move3 {
+    0% { transform: rotate(180deg) translateX(200px) rotate(-180deg); }
+    100% { transform: rotate(540deg) translateX(200px) rotate(-540deg); }
+  }
+  
+  @keyframes move4 {
+    0% { transform: rotate(270deg) translateX(200px) rotate(-270deg); }
+    100% { transform: rotate(630deg) translateX(200px) rotate(-630deg); }
+  }
+
+#userC1 {
+  position: absolute;
+  left: -500px;
+  top: -499px;
+  width: 500px;
+  height: 500px;
+  background: #7E30E1;
+  background-blend-mode: normal;
+  filter: blur(100px);
+ 
+  border-radius: 50%;
+}
+#userC2 {
+  position: absolute;
+  left: 10px;
+  top: 280px;
+  width: 700px;
+  height: 300px;
+  background: #A555EC;
+  background-blend-mode: normal;
+  filter: blur(150px);
+ 
+  border-radius: 50%;
+}
+
+
+
+
+

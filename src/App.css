@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Mono&family=Pixelify+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Flow+Rounded&family=Nova+Mono&family=Pixelify+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=League+Gothic&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Six+Caps&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+ 
+
+
+/* Hide the bottom scrollbar */
+
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  
+}
+
+/* Customize the vertical scrollbar */
+/* For Webkit-based browsers like Chrome and Safari */
+::-webkit-scrollbar {
+  width: 1px; /* thinner scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black; /* transparent background */
+  border-radius: 1px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black; /* #7DF9FF color for the scrollbar handle */
+  border-radius: 1px;
+}
+
+/* For Firefox */
+/* Track */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #000000 transparent; /* set handle color and track background */
+}
+
+/* Handle */
+html::-moz-scrollbar-thumb {
+  background: #7000000; /* #7DF9FF color for the scrollbar handle in Firefox */
+  border-radius: 1px;
+}
+
+
+
+@keyframes hoverUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px); /* Adjust the vertical distance */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation to each letter within the anchor tag */
+a.text-5xl {
+  display: inline-block; /* Ensures inline-block elements can be transformed */
+}
+
+a.text-5xl span {
+  display: inline-block;
+  animation: hoverUpDown 1s infinite; /* Adjust animation duration as needed */
+}
+
+

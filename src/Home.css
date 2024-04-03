@@ -1,0 +1,34 @@
+
+#HYGIEIA {
+  position: absolute;
+  left: 110px;
+  top: 200px;
+  width: 189.04px;
+  height: 48.02px;
+  background-blend-mode: normal;
+}
+#Hsignup{
+position: absolute;
+  left: 1200px;
+  top: 30px;
+  background-blend-mode: normal;
+  box-shadow: 0px 4px 41px rgba(112,10,160,0.4);
+
+}
+#rectangleB {
+  position: absolute;
+  left: 640px;
+  top: 460px;
+  background-blend-mode: normal;
+  box-shadow: 0px 4px 41px rgba(112,10,160,0.4);
+}
+
+#i1{
+ position: absolute;
+  left: 1050px;
+  top: 200px;
+  width: 250px;
+  height: 250px;
+  background-blend-mode: normal;
+}
+

@@ -1,0 +1,39 @@
+#chHYGIEIA{
+position: absolute;
+  top: 170px;
+   left: 200px;
+  width: 1000px;
+  height: 150px;
+ 
+  background-blend-mode: normal;
+
+
+}
+
+#chuserHYGIEIA {
+  position: absolute;
+  top: 333px;
+   left: 420px;
+  width:560px;
+  height: 200px;
+
+  background-blend-mode: normal;
+}
+#chdocHYGIEIA {
+  position: absolute;
+top: 333px;
+   left: 200px;
+  width: 200px;
+  height: 200px;
+
+  background-blend-mode: normal;
+}
+#chphaHYGIEIA {
+  position: absolute;
+top: 333px;
+   left: 1000px;
+  width: 200px;
+  height: 200px;
+
+  background-blend-mode: normal;
+}
