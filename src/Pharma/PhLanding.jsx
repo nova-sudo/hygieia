@@ -4,12 +4,8 @@ import { useCallback } from "react";
 import {Link} from 'react-router-dom'
 import "./PhLanding.css"
 import PhBackground from "./PHBackground";
-
 import { CgProfile } from "react-icons/cg";
-
-
 import { PiPillFill } from "react-icons/pi";
-
 import { FaPrescriptionBottleAlt } from "react-icons/fa";
 import { MdWorkHistory } from "react-icons/md";
 import { MdOutlineInventory } from "react-icons/md";
@@ -19,14 +15,8 @@ function PhLanding() {
           
     
     return (
-               
-               
-               
             <div id="cover">
                   <PhBackground/>
-                    
-                       
-                    
                                  
                         <h1 className=" text-9xl font-bold font-right text-header " id="userHYGIEIA">HYGIEIA</h1>
                         <PiPillFill id="iL3"/>
@@ -47,13 +37,7 @@ function PhLanding() {
    <Link  class="menu-item blackx">  </Link>
 
 </nav>
-                         
-                        
-
-
-
-                  
-
+          
             </div>
               
                

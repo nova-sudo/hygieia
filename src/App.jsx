@@ -28,13 +28,14 @@
   import PhCRUD from "./Pharma/PhCRUD";
   import PharmacyInventory from "./Pharma/PharmacyInventory";
   import PaymentPage from "./User/PaymnetPage";
-
+  import {NextUIProvider} from "@nextui-org/react";
 
   function App() {
 
     
       return (
-                 <BrowserRouter>
+        <NextUIProvider>  
+           <BrowserRouter>
                  <Routes>
                   <Route path="/" element={<Home/>}/>
                   <Route path="/Signup1" element={<Signup1/>}/>
@@ -67,7 +68,8 @@
                  
                 
                  </BrowserRouter>
-                 
+                 </NextUIProvider>
+              
                  
                  
         

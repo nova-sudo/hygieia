@@ -2,7 +2,14 @@ import React, { useState } from 'react';
 import DocBackground from './DocBackground';
 import "./DocBackground.css"
 import { FcAcceptDatabase } from "react-icons/fc";
-
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableColumn,
+  TableRow,
+  TableCell
+} from "@nextui-org/react";
 
 
 const DoctorMessages = () => {
