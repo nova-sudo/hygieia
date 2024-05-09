@@ -20,7 +20,8 @@
 
 body {
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: hidden;  
+
   
 }
 
@@ -28,30 +29,30 @@ body {
 /* For Webkit-based browsers like Chrome and Safari */
 ::-webkit-scrollbar {
   width: 1px; /* thinner scrollbar */
+  background: transparent;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: black; /* transparent background */
+  background: transparent; /* transparent background */
   border-radius: 1px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: black; /* #7DF9FF color for the scrollbar handle */
-  border-radius: 1px;
+  background: transparent; /* #7DF9FF color for the scrollbar handle */
+  border-radius:1px ;
 }
 
 /* For Firefox */
 /* Track */
 html {
   scrollbar-width: thin;
-  scrollbar-color: #000000 transparent; /* set handle color and track background */
+  scrollbar-color:  white; /* set handle color and track background */
 }
 
 /* Handle */
 html::-moz-scrollbar-thumb {
-  background: #7000000; /* #7DF9FF color for the scrollbar handle in Firefox */
   border-radius: 1px;
 }
 
@@ -80,3 +81,17 @@ a.text-5xl span {
 }
 
 
+@keyframes fadeInOut {
+  0% {
+    opacity: 0; /* Start with opacity 0 */
+  }
+  100% {
+    opacity: 1; /* Increase opacity to 1 halfway through */
+  }
+  
+}
+
+/* Apply the animation to the elements */
+.transition-fade {
+  animation: fadeInOut 0.5s ease-in-out; /* Use the keyframes defined above */
+}

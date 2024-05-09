@@ -11,7 +11,7 @@ function Signup1() {
  
 
   return (
-    <div>
+    <div class="transition-fade">
         
         <Background/>
         <div  className=" text-black "    id="placeholder">
@@ -19,8 +19,10 @@ function Signup1() {
           <label id="userlabel"> Username</label>
                 <input className="px-5 text-xl " type="text" name="Username" id="rectangleS4" />
                 <label id="emaillabel"> Email </label>
+
                 <input className="px-5 text-xl " type="text" name="Username" id="rectangleS1" />
                 <label id="passlabel">Password</label>
+                
                  <input className="px-5 text-xl" type="password" name="password" id="rectangleS2" />
                 
       

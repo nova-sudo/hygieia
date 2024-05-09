@@ -1,8 +1,8 @@
 
 #docbG{
   position: absolute;
-  left:350px;
-  top:100px;
+  left:200px;
+  top:0px;
   color: #FFA1F5;
 }
 
@@ -10,8 +10,8 @@
   position: absolute;
   left: -390px;
   top: 200px;
-  width:  900px;
-  height:  900px;
+  width:  1100px;
+  height:  1100px;
   background: #0C0C0C;
   background-blend-mode: normal;
   filter: blur(100px);
@@ -27,8 +27,8 @@
   position: absolute;
   left:-390px;
   top: -500px;
-  width:  900px;
-  height:  900px;
+  width:  1100px;
+  height:  1100px;
   background: #481E14;
   background-blend-mode: normal;
   filter: blur(100px);
@@ -43,8 +43,8 @@
   position: absolute;
   left: 350px;
   top: 200px;
-  width: 900px;
-  height: 900px;
+  width:  1100px;
+  height:  1100px;
   background: #9B3922;
   background-blend-mode: normal;
   filter: blur(100px);
@@ -58,8 +58,8 @@
   position: absolute;
   left: 347px;
   top: -499px;
-  width: 900px;
-  height: 900px;
+  width:  1100px;
+  height:  1100px;
   background: #F2613F;
   background-blend-mode: normal;
   filter: blur(100px);

@@ -29,7 +29,7 @@ const PaymentPage = () => {
 
   return (
 
-    <div className="relative">
+    <div className="relative" class="transition-fade">
         <Background/>
         <div className=" bg-white rounded-lg  w-96   translate-y-24 container font-right mx-auto relative z-10 px-4 py-8">
       <h2 className="text-2xl text-black font-bold mb-4">Payment Details</h2>

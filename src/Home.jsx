@@ -19,7 +19,7 @@ function Home() {
                
                
                
-            <div id="cover">
+            <div id="cover" class="transition-fade">
                   <Background/>
                     
 

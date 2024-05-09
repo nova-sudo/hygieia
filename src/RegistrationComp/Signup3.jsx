@@ -8,7 +8,7 @@ function SignUp3() {
   return (
           
 
-    <div classname="" >
+    <div classname="" class="transition-fade">
         
     <Background/>
     <div id="placeholder"> <label

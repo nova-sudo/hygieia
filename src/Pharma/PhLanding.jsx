@@ -15,7 +15,7 @@ function PhLanding() {
           
     
     return (
-            <div id="cover">
+            <div id="cover" class="transition-fade">
                   <PhBackground/>
                                  
                         <h1 className=" text-9xl font-bold font-right text-header " id="userHYGIEIA">HYGIEIA</h1>

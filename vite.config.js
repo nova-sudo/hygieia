@@ -4,7 +4,7 @@ import { defineConfig } from "vite"
 
 export default defineConfig({
   plugins: [react()],
-  base: "/http://nova-sudo.github.io/hygieia",
+  
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

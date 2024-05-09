@@ -4,7 +4,7 @@ import { useCallback } from "react";
 import {Link} from 'react-router-dom'
 import "./DocBackground.css"
 import DocBackground from "./DocBackground";
-
+import ball from '../assets/ball.png'
 
 
 
@@ -15,7 +15,7 @@ function DocCRUD() {
           
     
     return (
-        <div  id="cover">
+        <div  id="cover" class="transition-fade">
      <DocBackground id="docbG" />
         <div className="flex flex-col justify-center py-12 sm:px-6 lg:px-8 translate-y-28 font-right">
            
@@ -23,7 +23,7 @@ function DocCRUD() {
                 <div className="text-center">
                     <img
                         className="mx-auto h-12 w-auto"
-                        src="/user-icon.svg"
+                        src={ball}
                         alt="User Icon"
                     />
                     <h2 className="mt-6 text-3xl font-extrabold text-black">

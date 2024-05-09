@@ -1,19 +1,10 @@
-import React from "react"
-import { useEffect } from 'react';
-import { useCallback } from "react";
-import {Link} from 'react-router-dom'
-
+import React from "react";
 import UserBackground from "./userBackground";
-import "./UserBackground.css"
-
-
-
-
-
+import "./UserBackground.css";
+import "../App.css"
 
 function UserOrderHist() {
-          
-     // Example data of past orders
+  // Example data of past orders
   const pastOrders = [
     {
       id: 1,
@@ -35,64 +26,45 @@ function UserOrderHist() {
     },
     // Add more past orders as needed
   ];
-    
-    return (
-               
-               
-               
-           
-        <div id="cover" className="relative">
-        <UserBackground id="userbG" />
-        <div className="container mx-auto px-4 py-8 relative z-10 font-right">
-            <h1 className="text-5xl mb-10 font-semibold ">Drug Order History </h1>
-            <div>
-                <table className="min-w-full border-collapse border ">
-                    <thead>
-                        <tr >
-                            <th className="border border-gray-300 px-4 py-2">Order ID</th>
-                            <th className="border border-gray-300 px-4 py-2">Date</th>
-                            <th className="border border-gray-300 px-4 py-2">Items</th>
-                            <th className="border border-gray-300 px-4 py-2">Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {pastOrders.map(order => (
-                            <tr key={order.id}>
-                                <td className="border border-gray-300 px-4 py-2">{order.id}</td>
-                                <td className="border border-gray-300 px-4 py-2">{order.date}</td>
-                                <td className="border border-gray-300 px-4 py-2">
-                                    <ul>
-                                        {order.items.map(item => (
-                                            <li key={item.name}>
-                                                {item.name} ({item.quantity}) - ${item.price}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </td>
-                                <td className="border border-gray-300 px-4 py-2">${order.total}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+
+  return (
+    <div id="cover" className="relative " class="transition-fade">
+      <UserBackground id="userbG" />
+      <div className="container mx-auto px-4 py-8 relative z-10 font-right">
+        <h1 className="text-8xl mb-10 font-semibold">Drug Order History</h1>
+        <div className="rounded-lg bg-white shadow-md text-black">
+          <table className="min-w-full border-collapse border">
+            <thead>
+              <tr>
+                <th className="border border-gray-300 px-4 py-2">Order ID</th>
+                <th className="border border-gray-300 px-4 py-2">Date</th>
+                <th className="border border-gray-300 px-4 py-2">Items</th>
+                <th className="border border-gray-300 px-4 py-2">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {pastOrders.map((order) => (
+                <tr key={order.id}>
+                  <td className="border border-gray-300 px-4 py-2">{order.id}</td>
+                  <td className="border border-gray-300 px-4 py-2">{order.date}</td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    <ul>
+                      {order.items.map((item) => (
+                        <li key={item.name}>
+                          {item.name} ({item.quantity}) - ${item.price}
+                        </li>
+                      ))}
+                    </ul>
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">${order.total}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
+      </div>
     </div>
-    
-              
-               
-               
-               
-      
-      
-          
-     
-      
-      
-      
-        
-        
-     
-    );
+  );
 }
 
-export default UserOrderHist
+export default UserOrderHist;

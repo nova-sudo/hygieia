@@ -1,16 +1,19 @@
 
+
 #bG{
   position: absolute;
-  left:350px;
-  top:100px;
+  left:200px;
+  top:0px;
+  color: #000000;
 }
+
 
 #ellipse1 {
   position: absolute;
   left: -290px;
   top: 109px;
-  width:  500px;
-  height:  500px;
+  width:  900px;
+  height:  900px;
   background: #000000;
   background-blend-mode: normal;
   filter: blur(150px);
@@ -23,8 +26,8 @@
   position: absolute;
   left: 100px;
   top: -100px;
-  width:  500px;
-  height:  500px;
+  width:  900px;
+  height:  900px;
   background: #150050;
   background-blend-mode: normal;
   filter: blur(150px);
@@ -37,8 +40,8 @@
   position: absolute;
   left: 497px;
   top: 129px;
-  width: 500px;
-  height: 500px;
+  width:  900px;
+  height:  900px;
   background: #3F0071;
   background-blend-mode: normal;
   filter: blur(150px);
@@ -51,8 +54,8 @@
   position: absolute;
   left: 147px;
   top: 289px;
-  width: 500px;
-  height: 500px;
+  width:  900px;
+  height:  900px;
   background: #FB2576;
   background-blend-mode: normal;
   filter: blur(150px);

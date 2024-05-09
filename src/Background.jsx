@@ -18,9 +18,9 @@ function Background() {
                
                
                
-            <div id="cover">
+            <div id="cover" class="transition-fade">
                   <div id="bG" >
-                    
+                    <div id="cc"> </div>
 
                    
 

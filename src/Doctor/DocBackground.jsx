@@ -18,8 +18,8 @@ function DocBackground() {
                
                
                
-            <div id="cover">
-                  <div id="docbG" >
+            <div id="cover" class="transition-fade">
+                  <div id="docbG" className="bg-purple-" >
                     
 
 <div id="docC2"></div>                   

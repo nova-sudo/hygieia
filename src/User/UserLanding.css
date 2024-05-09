@@ -287,3 +287,109 @@ a {
     left:100px;
     top:100px;
 }
+
+
+/* Define keyframes for fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0; /* Start with opacity 0 (fully transparent) */
+  }
+  100% {
+    opacity: 1; /* Fade in to opacity 1 (fully visible) */
+  }
+}
+
+/* Apply the animation to each element */
+#userHYGIEIA,
+#iL1 {
+  animation: fadeIn 0.7s ease-in-out forwards; /* Use the fadeIn keyframes */
+  opacity: 0; /* Initially set opacity to 0 to start the animation */
+}
+
+/* Delay the animation for #iL1 */
+#iL1 {
+  animation-delay: 0.7s; /* Delay the animation for 0.5s */
+}
+
+#userHYGIEIA{
+  animation-delay: 0.2s ;
+ 
+ }
+
+ body {
+  overflow-x: hidden;
+
+
+  
+}
+
+/* Customize the vertical scrollbar */
+/* For Webkit-based browsers like Chrome and Safari */
+::-webkit-scrollbar {
+  width: 1px; /* thinner scrollbar */
+  background: transparent;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent; /* transparent background */
+  border-radius: 1px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: transparent; /* #7DF9FF color for the scrollbar handle */
+  border-radius:1px ;
+}
+
+/* For Firefox */
+/* Track */
+html {
+  scrollbar-width: thin;
+  scrollbar-color:  white; /* set handle color and track background */
+}
+
+/* Handle */
+html::-moz-scrollbar-thumb {
+  border-radius: 1px;
+}
+
+
+
+@keyframes hoverUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px); /* Adjust the vertical distance */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation to each letter within the anchor tag */
+a.text-5xl {
+  display: inline-block; /* Ensures inline-block elements can be transformed */
+}
+
+a.text-5xl span {
+  display: inline-block;
+  animation: hoverUpDown 1s infinite; /* Adjust animation duration as needed */
+}
+
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0; /* Start with opacity 0 */
+  }
+  100% {
+    opacity: 1; /* Increase opacity to 1 halfway through */
+  }
+  
+}
+
+/* Apply the animation to the elements */
+.transition-fade {
+  animation: fadeInOut 0.5s ease-in-out; /* Use the keyframes defined above */
+}

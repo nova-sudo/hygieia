@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PhBackground from './PHBackground';
 
-
 const DrugPrescriptions = () => {
   // Example prescription data
   const [prescriptions, setPrescriptions] = useState([
@@ -17,29 +16,29 @@ const DrugPrescriptions = () => {
   };
 
   return (
-    <div id="cover" className='relative'>
+    <div id="cover" className='relative' class="transition-fade">
       <PhBackground/>
       <div className="container mx-auto px-4 font-right py-8 relative z-10">
-        <h2 className="text-2xl font-bold mb-4">Drug Prescriptions</h2>
-        <div className="overflow-x-auto">
-          <table className="min-w-full border border-gray-200 rounded-lg">
+        <h2 className="text-8xl font-bold mb-10">Drug Prescriptions</h2>
+        <div className=" text-black">
+          <table className="min-w-full  border-gray-200 rounded-lg bg-white">
             <thead>
               <tr>
-                <th className="border border-gray-200 px-4 py-2">ID</th>
-                <th className="border border-gray-200 px-4 py-2">User Name</th>
-                <th className="border border-gray-200 px-4 py-2">Drug Name</th>
-                <th className="border border-gray-200 px-4 py-2">Status</th>
-                <th className="border border-gray-200 px-4 py-2">Actions</th>
+                <th className=" border-gray-200 px-4 py-2">ID</th>
+                <th className=" border-gray-200 px-4 py-2">User Name</th>
+                <th className=" border-gray-200 px-4 py-2">Drug Name</th>
+                <th className=" border-gray-200 px-4 py-2">Status</th>
+                <th className=" border-gray-200 px-4 py-2">Actions</th>
               </tr>
             </thead>
             <tbody>
               {prescriptions.map(prescription => (
                 <tr key={prescription.id}>
-                  <td className="border border-gray-200 px-4 py-2">{prescription.id}</td>
-                  <td className="border border-gray-200 px-4 py-2">{prescription.userName}</td>
-                  <td className="border border-gray-200 px-4 py-2">{prescription.drugName}</td>
-                  <td className="border border-gray-200 px-4 py-2">{prescription.status}</td>
-                  <td className="border border-gray-200 px-4 py-2">
+                  <td className=" border-gray-200 px-4 py-2">{prescription.id}</td>
+                  <td className="border-y border-gray-200 px-4 py-2">{prescription.userName}</td>
+                  <td className="border-y border-gray-200 px-4 py-2">{prescription.drugName}</td>
+                  <td className="border-y border-gray-200 px-4 py-2">{prescription.status}</td>
+                  <td className=" border-y border-gray-200 px-4 py-2">
                     {prescription.status === 'Pending' && (
                       <button onClick={() => handleOrder(prescription.id)} className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Send Order</button>
                     )}

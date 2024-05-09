@@ -1,17 +1,17 @@
 
 #phbG{
   position: absolute;
-  left:350px;
-  top:100px;
-  color: #FFA1F5;
+  left:200px;
+  top:0px;
+  color: #f15be2;
 }
 
 #phEllipse1 {
   position: absolute;
   left: -390px;
   top: 200px;
-  width:  900px;
-  height:  900px;
+  width:  1100px;
+  height:  1100px;
   background: #070F2B;
   background-blend-mode: normal;
   filter: blur(100px);
@@ -27,8 +27,8 @@
   position: absolute;
   left:-390px;
   top: -500px;
-  width:  900px;
-  height:  900px;
+  width:  1100px;
+  height:  1100px;
   background: #1B1A55;
   background-blend-mode: normal;
   filter: blur(100px);
@@ -43,8 +43,8 @@
   position: absolute;
   left: 350px;
   top: 200px;
-  width: 900px;
-  height: 900px;
+  width:  1100px;
+  height:  1100px;
   background: #535C91;
   background-blend-mode: normal;
   filter: blur(100px);
@@ -58,8 +58,8 @@
   position: absolute;
   left: 347px;
   top: -499px;
-  width: 900px;
-  height: 900px;
+  width:  1100px;
+  height:  1100px;
   background: #9290C3;
   background-blend-mode: normal;
   filter: blur(100px);

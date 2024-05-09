@@ -8,7 +8,7 @@ import { CiMedicalMask } from "react-icons/ci";
 import { CiMedicalCase } from "react-icons/ci";
 import { IoMedicalOutline } from "react-icons/io5";
 
-
+import "../App.css"
 
 
 function UserBackground() {
@@ -17,9 +17,8 @@ function UserBackground() {
     return (
                
                
-               
-            <div id="cover">
-                  <div id="userbG" >
+          
+                  <div className="" id="userbG" class="transition-fade" >
                     
 
 <div id="userC2"></div>                   
@@ -35,8 +34,7 @@ function UserBackground() {
 
                   </div>
 
-            </div>
-              
+        
                
                
                

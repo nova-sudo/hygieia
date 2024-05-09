@@ -2,7 +2,7 @@
   import { useEffect } from 'react';
   import { useCallback } from "react";
   import { Link,BrowserRouter,Routes, Route, Router } from 'react-router-dom';
-  import './App.css';
+  
   import Signup1 from './RegistrationComp/Signup1'
   import Signup2 from "./RegistrationComp/Signup2";
   import Signup3 from "./RegistrationComp/Signup3";
@@ -28,13 +28,13 @@
   import PhCRUD from "./Pharma/PhCRUD";
   import PharmacyInventory from "./Pharma/PharmacyInventory";
   import PaymentPage from "./User/PaymnetPage";
-  import {NextUIProvider} from "@nextui-org/react";
+import './App.css';
 
   function App() {
 
     
       return (
-        <NextUIProvider>  
+        
            <BrowserRouter>
                  <Routes>
                   <Route path="/" element={<Home/>}/>
@@ -62,13 +62,14 @@
                   <Route path="/phcrud" element={<PhCRUD/>}/>
                   <Route path="/PharmacyInventory" element={<PharmacyInventory/>}/>
                   <Route path="/PaymentPage" element={<PaymentPage/>}/>
+                
 
                  </Routes>
                  
                  
                 
                  </BrowserRouter>
-                 </NextUIProvider>
+             
               
                  
                  

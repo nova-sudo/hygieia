@@ -24,7 +24,7 @@ function DocLanding() {
                
                
                
-            <div id="cover">
+            <div id="cover" class="transition-fade">
                   <DocBackground/>
                     
                        

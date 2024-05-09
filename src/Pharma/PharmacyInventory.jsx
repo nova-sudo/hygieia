@@ -17,37 +17,36 @@ const PharmacyInventory = () => {
   ];
 
   return (
-
-    <div className='relative'>
-        <PhBackground/>
-        <div className="container mx-auto px-4 font-right py-8 relative z-10">
-      <h2 className="text-2xl font-bold mb-4">Pharmacy Inventory</h2>
-      <div className="overflow-x-auto">
-        <table className="min-w-full border-collapse border border-gray-200 rounded-lg">
-          <thead>
-            <tr>
-              <th className="border border-gray-200 px-4 py-2">ID</th>
-              <th className="border border-gray-200 px-4 py-2">Name</th>
-              <th className="border border-gray-200 px-4 py-2">Type</th>
-              <th className="border border-gray-200 px-4 py-2">Quantity</th>
-              <th className="border border-gray-200 px-4 py-2">Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {medications.map(medication => (
-              <tr key={medication.id}>
-                <td className="border border-gray-200 px-4 py-2">{medication.id}</td>
-                <td className="border border-gray-200 px-4 py-2">{medication.name}</td>
-                <td className="border border-gray-200 px-4 py-2">{medication.type}</td>
-                <td className="border border-gray-200 px-4 py-2">{medication.quantity}</td>
-                <td className="border border-gray-200 px-4 py-2">${medication.price}</td>
+    <div className='relative' class="transition-fade">
+      <PhBackground/>
+      <div className="container mx-auto px-4 font-right py-8 relative z-10">
+        <h2 className="text-8xl font-bold mb-10">Pharmacy Inventory</h2>
+        <div className=" text-black   ">
+          <table className="min-w-full    rounded-lg bg-white">
+            <thead>
+              <tr>
+                <th className="  px-4 py-2">ID</th>
+                <th className="  px-4 py-2">Name</th>
+                <th className="  px-4 py-2">Type</th>
+                <th className=" px-4 py-2">Quantity</th>
+                <th className="  px-4 py-2">Price</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {medications.map(medication => (
+                <tr key={medication.id}>
+                  <td className="  border-y px-4 py-2">{medication.id}</td>
+                  <td className="  border-y px-4 py-2">{medication.name}</td>
+                  <td className=" border-y px-4 py-2">{medication.type}</td>
+                  <td className=" border-y px-4 py-2">{medication.quantity}</td>
+                  <td className="border-y  px-4 py-2">${medication.price}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div></div>
-    
+    </div>
   );
 };
 

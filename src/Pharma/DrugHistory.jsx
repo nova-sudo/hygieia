@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PhBackground from './PHBackground';
+
 const DrugHistory = () => {
   // Example drug history data
   const [drugHistory, setDrugHistory] = useState([
@@ -10,35 +11,34 @@ const DrugHistory = () => {
   ]);
 
   return (
-
-    <div className='relative'>
-        <PhBackground />
-        <div className="container mx-auto px-4 py-8 font-right relative z-10">
-      <h2 className="text-2xl font-bold mb-4">Drug History</h2>
-      <div className="overflow-x-auto">
-        <table className="min-w-full border-collapse border border-gray-200 rounded-lg">
-          <thead>
-            <tr>
-              <th className="border border-gray-200 px-4 py-2">ID</th>
-              <th className="border border-gray-200 px-4 py-2">User Name</th>
-              <th className="border border-gray-200 px-4 py-2">Drug Name</th>
-              <th className="border border-gray-200 px-4 py-2">Date Sent</th>
-            </tr>
-          </thead>
-          <tbody>
-            {drugHistory.map(drug => (
-              <tr key={drug.id}>
-                <td className="border border-gray-200 px-4 py-2">{drug.id}</td>
-                <td className="border border-gray-200 px-4 py-2">{drug.userName}</td>
-                <td className="border border-gray-200 px-4 py-2">{drug.drugName}</td>
-                <td className="border border-gray-200 px-4 py-2">{drug.dateSent}</td>
+    <div className='relative' class="transition-fade">
+      <PhBackground />
+      <div className="container mx-auto px-4 py-8 font-right relative z-10">
+        <h2 className="text-8xl font-bold mb-10">Drug History</h2>
+        <div className="rounded-lg text-black bg-white  shadow-md ">
+          <table className="min-w-full border-collapse border border-gray-200">
+            <thead>
+              <tr>
+                <th className="border border-gray-200 px-4 py-2">ID</th>
+                <th className="border border-gray-200 px-4 py-2">User Name</th>
+                <th className="border border-gray-200 px-4 py-2">Drug Name</th>
+                <th className="border border-gray-200 px-4 py-2">Date Sent</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {drugHistory.map(drug => (
+                <tr key={drug.id}>
+                  <td className="border border-gray-200 px-4 py-2">{drug.id}</td>
+                  <td className="border border-gray-200 px-4 py-2">{drug.userName}</td>
+                  <td className="border border-gray-200 px-4 py-2">{drug.drugName}</td>
+                  <td className="border border-gray-200 px-4 py-2">{drug.dateSent}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div></div>
-    
+    </div>
   );
 };
 

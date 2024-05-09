@@ -10,7 +10,7 @@ function Login() {
  
 
   return (
-    <div>
+    <div class="transition-fade">
         
         <Background/>
         <div  className=" text-black "    id="placeholder">

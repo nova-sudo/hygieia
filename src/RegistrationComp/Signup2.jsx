@@ -8,7 +8,7 @@ function SignUp2() {
   return (
           
 
-    <div>
+    <div class="transition-fade">
         
     <Background/>
     <div  className=" text-black "    id="placeholder">
