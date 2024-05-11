@@ -16,7 +16,7 @@ function Login() {
       ...formData,
       [e.target.name]: e.target.value
     });
-  };git push -u origin <branch_name>
+  };
 
 
   const handleSubmit = (e) => {
