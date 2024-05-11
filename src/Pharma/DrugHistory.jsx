@@ -1,37 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import PhBackground from './PHBackground';
 
 const DrugHistory = () => {
-  // Example drug history data
-  const [drugHistory, setDrugHistory] = useState([
-    { id: 1, userName: 'John Doe', drugName: 'Medication A', dateSent: '2024-04-01' },
-    { id: 2, userName: 'Jane Smith', drugName: 'Medication B', dateSent: '2024-03-30' },
-    { id: 3, userName: 'Michael Johnson', drugName: 'Medication C', dateSent: '2024-03-28' },
-    // Add more drug history items as needed
-  ]);
+  const [prescriptions, setPrescriptions] = useState([]);
+
+  useEffect(() => {
+    fetchPrescriptions();
+  }, []);
+
+  const fetchPrescriptions = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/prescriptions');
+    
+      const availablePrescriptions = response.data.filter(prescription => prescription.orderAvailable);
+      setPrescriptions(availablePrescriptions);
+    } catch (error) {
+      console.error('Error fetching prescriptions:', error);
+    }
+  };
 
   return (
     <div className='relative' class="transition-fade">
       <PhBackground />
       <div className="container mx-auto px-4 py-8 font-right relative z-10">
-        <h2 className="text-8xl font-bold mb-10">Drug History</h2>
-        <div className="rounded-lg text-black bg-white  shadow-md ">
-          <table className="min-w-full border-collapse border border-gray-200">
+        <h1 className="text-8xl pb-20 font-bold mb-4">Drug History</h1>
+        <div className="overflow-x-auto rounded-lg bg-white shadow-md">
+          <table className="table-auto w-full text-black">
             <thead>
-              <tr>
-                <th className="border border-gray-200 px-4 py-2">ID</th>
-                <th className="border border-gray-200 px-4 py-2">User Name</th>
-                <th className="border border-gray-200 px-4 py-2">Drug Name</th>
-                <th className="border border-gray-200 px-4 py-2">Date Sent</th>
+              <tr className="bg-gray-200 ">
+                <th className="px-4 py-2">Prescription</th>
+                <th className="px-4 py-2">Created At</th>
+                <th className="px-4 py-2">Associated User</th>
               </tr>
             </thead>
             <tbody>
-              {drugHistory.map(drug => (
-                <tr key={drug.id}>
-                  <td className="border border-gray-200 px-4 py-2">{drug.id}</td>
-                  <td className="border border-gray-200 px-4 py-2">{drug.userName}</td>
-                  <td className="border border-gray-200 px-4 py-2">{drug.drugName}</td>
-                  <td className="border border-gray-200 px-4 py-2">{drug.dateSent}</td>
+              {prescriptions.map((prescription, index) => (
+                <tr key={index}>
+                  <td className="border px-4 py-2">{prescription.prescription}</td>
+                  <td className="border px-4 py-2">{new Date(prescription.createdAt).toLocaleString()}</td>
+                  <td className="border px-4 py-2">{prescription.username}</td>
                 </tr>
               ))}
             </tbody>

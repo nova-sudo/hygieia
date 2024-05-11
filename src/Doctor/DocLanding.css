@@ -287,26 +287,26 @@ a {
     left:100px;
     top:100px;
 }
-/* Define keyframes for fade-in animation */
+
 @keyframes fadeIn {
   0% {
-    opacity: 0; /* Start with opacity 0 (fully transparent) */
+    opacity: 0; 
   }
   100% {
-    opacity: 1; /* Fade in to opacity 1 (fully visible) */
+    opacity: 1; 
   }
 }
 
-/* Apply the animation to each element */
+
 #userHYGIEIA,
 #iL2 {
-  animation: fadeIn 0.7s ease-in-out forwards; /* Use the fadeIn keyframes */
-  opacity: 0; /* Initially set opacity to 0 to start the animation */
+  animation: fadeIn 0.7s ease-in-out forwards; 
+  opacity: 0;
 }
 
-/* Delay the animation for #iL2 */
+
 #iL2 {
-  animation-delay: 0.7s; /* Delay the animation for 0.5s */
+  animation-delay: 0.7s; 
 }
 
 #userHYGIEIA{

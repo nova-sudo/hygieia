@@ -1,62 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from 'axios';
 import UserBackground from "./userBackground";
-import "./UserBackground.css";
-import "../App.css"
 
 function UserOrderHist() {
-  // Example data of past orders
-  const pastOrders = [
-    {
-      id: 1,
-      date: '2023-04-01',
-      items: [
-        { name: 'Product A', quantity: 2, price: 10 },
-        { name: 'Product B', quantity: 1, price: 15 },
-      ],
-      total: 35,
-    },
-    {
-      id: 2,
-      date: '2023-03-25',
-      items: [
-        { name: 'Product C', quantity: 1, price: 20 },
-        { name: 'Product D', quantity: 3, price: 12 },
-      ],
-      total: 56,
-    },
-    // Add more past orders as needed
-  ];
+  const [username, setUsername] = useState('');
+  const [prescriptions, setPrescriptions] = useState([]);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.get(`http://localhost:5000/prescriptions/${username}`);
+      setPrescriptions(response.data);
+      setErrorMessage('');
+    } catch (error) {
+      setErrorMessage('Failed to fetch prescriptions. Please try again later.');
+    }
+  };
 
   return (
-    <div id="cover" className="relative " class="transition-fade">
+    <div id="cover" className="relative transition-fade">
       <UserBackground id="userbG" />
       <div className="container mx-auto px-4 py-8 relative z-10 font-right">
-        <h1 className="text-8xl mb-10 font-semibold">Drug Order History</h1>
-        <div className="rounded-lg bg-white shadow-md text-black">
-          <table className="min-w-full border-collapse border">
-            <thead>
+        <h1 className="text-8xl pb-10 font-bold mb-4">User Prescription History</h1>
+        <form onSubmit={handleSubmit} className="mb-4 pb-10">
+          <label htmlFor="username" className="block text-4xl  mb-2 ">Enter Username:</label>
+          <input
+            type="text"
+            id="username"
+            value={username}
+            onChange={handleUsernameChange}
+            className="border text-black border-gray-300 rounded px-3 py-1"
+            required
+          />
+          <button type="submit" className="ml-2 bg-black hover:bg-white hover:text-black text-white font-bold py-2 px-4 rounded">
+            Fetch Prescriptions
+          </button>
+        </form>
+        {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+        <div>
+          <h2 className="text-4xl font-bold mb-2">Prescriptions:</h2>
+          <table className="rounded-lg overflow-hidden text-black w-full">
+            <thead className="bg-gray-200">
               <tr>
-                <th className="border border-gray-300 px-4 py-2">Order ID</th>
-                <th className="border border-gray-300 px-4 py-2">Date</th>
-                <th className="border border-gray-300 px-4 py-2">Items</th>
-                <th className="border border-gray-300 px-4 py-2">Total</th>
+                <th className="py-2 px-4">Prescription</th>
+                <th className="py-2 px-4">Timestamp</th>
               </tr>
             </thead>
             <tbody>
-              {pastOrders.map((order) => (
-                <tr key={order.id}>
-                  <td className="border border-gray-300 px-4 py-2">{order.id}</td>
-                  <td className="border border-gray-300 px-4 py-2">{order.date}</td>
-                  <td className="border border-gray-300 px-4 py-2">
-                    <ul>
-                      {order.items.map((item) => (
-                        <li key={item.name}>
-                          {item.name} ({item.quantity}) - ${item.price}
-                        </li>
-                      ))}
-                    </ul>
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">${order.total}</td>
+              {prescriptions.map((prescription, index) => (
+                <tr key={index} className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}>
+                  <td className="py-2 px-4">{prescription.prescription}</td>
+                  <td className="py-2 px-4">{new Date(prescription.createdAt).toLocaleString()}</td>
                 </tr>
               ))}
             </tbody>

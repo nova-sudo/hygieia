@@ -1,59 +1,93 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import DocBackground from './DocBackground';
-import "./DocBackground.css";
-import { FcAcceptDatabase } from "react-icons/fc";
-import {
-  Table,
-  TableHeader,
-  TableBody,
-  TableColumn,
-  TableRow,
-  TableCell
-} from "@nextui-org/react";
-
 
 const DoctorMessages = () => {
-  // Example messages data
-  const [messages, setMessages] = useState([
-    { id: 1, userName: 'John Doe', message: 'I have a question about my medication.', doctorResponse: '' },
-    { id: 2, userName: 'Jane Smith', message: 'I need to reschedule my appointment.', doctorResponse: '' },
-  ]);
+  const [symptomsData, setSymptomsData] = useState([]);
+  const [prescriptions, setPrescriptions] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
 
-  const handleResponse = (id, response) => {
-    setMessages(prevMessages => prevMessages.map(message =>
-      message.id === id ? { ...message, doctorResponse: response } : message
-    ));
+  useEffect(() => {
+    fetchSymptomsData();
+  }, []);
+
+  const fetchSymptomsData = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/symptoms');
+      setSymptomsData(response.data);
+    } catch (error) {
+      console.error('Error fetching symptom data:', error);
+      setErrorMessage('Failed to fetch symptom data. Please try again later.');
+    }
+  };
+
+  const handlePrescriptionChange = (username, prescription) => {
+    setPrescriptions(prevPrescriptions => ({
+      ...prevPrescriptions,
+      [username]: prescription
+    }));
+  };
+
+  const savePrescription = async (username) => {
+    try {
+      setIsLoading(true);
+      await axios.post('http://localhost:5000/prescriptions', {
+        username,
+        prescription: prescriptions[username]
+      });
+      setIsLoading(false);
+    } catch (error) {
+      console.error('Error saving prescription:', error);
+      setErrorMessage('Failed to save prescription. Please try again later.');
+      setIsLoading(false);
+    }
   };
 
   return (
-    <div id="cover" className='relative' class="transition-fade">
-      <DocBackground/>
-      <div className="container font-right mx-auto px-4 py-8 relative z-10">
-        <h2 className="text-8xl font-bold mb-10">User Messages</h2>
-        <div className="">
-          <table className="min-w-full border-collapse text-black  border-gray-200 rounded-lg bg-white">
+    <div className="relative font-right transition-fade rounded-lg bg-gray-100 min-h-screen">
+      <DocBackground />
+      <div className="container mx-auto px-4 py-8 relative z-10">
+        <h1 className="text-8xl font-bold mb-4">Doctor Messages</h1>
+        {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+        <div className="overflow-x-auto">
+          <table className="mt-2 w-full rounded-lg border-collapse text-black  bg-white">
             <thead>
-              <tr>
-                <th className=" border-gray-200 px-4 py-2">ID</th>
-                <th className=" border-gray-200 px-4 py-2">User Name</th>
-                <th className=" border-gray-200 px-4 py-2">Message</th>
-                <th className=" border-gray-200 px-4 py-2">Doctor Response</th>
-                <th className=" border-gray-200 px-4 py-2">Actions</th>
+              <tr className=" rounded-lg">
+                <th className="px-4 py-2 rounded-lg">Username</th>
+                <th className="px-4 py-2 rounded-lg">Sex</th>
+                <th className="px-4 py-2 rounded-lg">Age</th>
+                <th className="px-4 py-2 rounded-lg">Symptoms</th>
+                <th className="px-4 py-2 rounded-lg">Prescription</th>
               </tr>
             </thead>
             <tbody>
-              {messages.map(message => (
-                <tr key={message.id}>
-                  <td className=" border-gray-200 px-4 py-2">{message.id}</td>
-                  <td className=" border-gray-200 px-4 py-2">{message.userName}</td>
-                  <td className=" border-gray-200 px-4 py-2">{message.message}</td>
-                  <td className=" border-gray-200 px-4 py-2">{message.doctorResponse}</td>
-                  <td className=" border-gray-200 px-4 py-2">
-                    {message.doctorResponse === '' && (
-                      <button onClick={() => handleResponse(message.id, 'Your response here')} className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-                        <FcAcceptDatabase className='text-xl'/>
-                      </button>
-                    )}
+              {symptomsData.map(symptom => (
+                <tr key={symptom._id} className=" rounded-lg">
+                  <td className="px-4 py-2">{symptom.username}</td>
+                  <td className="px-4 py-2">{symptom.symptomData.sex}</td>
+                  <td className="px-4 py-2">{symptom.symptomData.age.value} {symptom.symptomData.age.unit}</td>
+                  <td className="px-4 py-2">
+                    <ul>
+                      {symptom.symptomData.evidence.map(evidence => (
+                        <li key={evidence.id}>{evidence.id}</li>
+                      ))}
+                    </ul>
+                  </td>
+                  <td className="px-4 py-2">
+                    <input
+                      type="text"
+                      className=" rounded px-2 py-1 w-full"
+                      value={prescriptions[symptom.username] || ''}
+                      onChange={e => handlePrescriptionChange(symptom.username, e.target.value)}
+                    />
+                    <button
+                      className="mt-2 bg-black hover:bg-white  hover:text-black text-white font-bold py-2 px-4 rounded"
+                      onClick={() => savePrescription(symptom.username)}
+                      disabled={isLoading}
+                    >
+                      {isLoading ? 'Saving...' : 'Save'}
+                    </button>
                   </td>
                 </tr>
               ))}

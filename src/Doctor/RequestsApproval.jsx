@@ -8,7 +8,7 @@ const RequestsApproval = () => {
     { id: 1, type: 'Prescription', details: 'Medication A', status: 'Pending' },
     { id: 2, type: 'Appointment', details: '10:00 AM, John Doe', status: 'Pending' },
     { id: 3, type: 'Prescription', details: 'Medication B', status: 'Pending' },
-    // Add more requests as needed
+   
   ]);
 
   const handleApprove = (id) => {
@@ -39,24 +39,7 @@ const RequestsApproval = () => {
                 <th className=" border-gray-200 px-4 py-2">Actions</th>
               </tr>
             </thead>
-            <tbody>
-              {requests.map(request => (
-                <tr key={request.id}>
-                  <td className=" border-gray-200 px-4 py-2">{request.id}</td>
-                  <td className=" border-gray-200 px-4 py-2">{request.type}</td>
-                  <td className=" border-gray-200 px-4 py-2">{request.details}</td>
-                  <td className=" border-gray-200 px-4 py-2">{request.status}</td>
-                  <td className=" border-gray-200 px-4 py-2">
-                    {request.status === 'Pending' && (
-                      <>
-                        <button onClick={() => handleApprove(request.id)} className="bg-stone-950 hover:bg-stone-550 text-white font-bold py-2 px-4 rounded mr-2">Approve</button>
-                        <button onClick={() => handleReject(request.id)} className="bg-stone-950 hover:bg-stone-550 text-white font-bold py-2 px-4 rounded">Reject</button>
-                      </>
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
+            
           </table>
         </div>
       </div>

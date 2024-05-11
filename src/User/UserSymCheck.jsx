@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import UserBackground from './userBackground';
-import "../App.css"
+import "../App.css";
 
 function UserSymCheck() {
   const [symptoms, setSymptoms] = useState([]);
@@ -14,6 +14,7 @@ function UserSymCheck() {
   const [triageResult, setTriageResult] = useState(null);
   const [specialistInfo, setSpecialistInfo] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [username, setUsername] = useState('');
 
   // Fetch symptoms data from API
   useEffect(() => {
@@ -22,8 +23,8 @@ function UserSymCheck() {
         const response = await fetch('https://api.infermedica.com/v3/concepts?types=symptom', {
           method: 'GET',
           headers: {
-            'App-Id': '14cb3954',
-            'App-Key': '95cf0d4e0f81c47145d2862b59da67fe',
+            'App-Id': 'c938324a',
+            'App-Key': '09240096b18d68944cba4e11d841e04d',
           },
         });
         const data = await response.json();
@@ -71,8 +72,8 @@ function UserSymCheck() {
     try {
       const response = await axios.post('https://api.infermedica.com/v3/diagnosis', requestData, {
         headers: {
-          'App-Id': '14cb3954',
-          'App-Key': '95cf0d4e0f81c47145d2862b59da67fe',
+          'App-Id': 'c938324a',
+          'App-Key': '09240096b18d68944cba4e11d841e04d',
           'Content-Type': 'application/json'
         }
       });
@@ -82,8 +83,8 @@ function UserSymCheck() {
       // Call triage API with the same data
       const triageResponse = await axios.post('https://api.infermedica.com/v3/triage', requestData, {
         headers: {
-          'App-Id': '14cb3954',
-          'App-Key': '95cf0d4e0f81c47145d2862b59da67fe',
+          'App-Id': 'c938324a',
+          'App-Key': '09240096b18d68944cba4e11d841e04d',
           'Content-Type': 'application/json'
         }
       });
@@ -93,18 +94,35 @@ function UserSymCheck() {
       if (triageResponse.data) {
         const specialistResponse = await axios.post('https://api.infermedica.com/v3/recommend_specialist', requestData, {
           headers: {
-            'App-Id': '14cb3954',
-            'App-Key': '95cf0d4e0f81c47145d2862b59da67fe',
+            'App-Id': 'c938324a',
+            'App-Key': '09240096b18d68944cba4e11d841e04d',
             'Content-Type': 'application/json'
           }
         });
         setSpecialistInfo(specialistResponse.data);
       }
+
+      // Save symptom data to the server
+      await saveSymptoms(requestData);
+
     } catch (error) {
       console.error('Error:', error);
       setDiagnosisError('Error. Please try again later.');
     }
   };
+
+  // Function to save symptom data to the server
+  const saveSymptoms = async (requestData) => {
+    try {
+      await axios.post('http://localhost:5000/save-symptoms', {
+        username: username,
+        symptomData: requestData
+      });
+    } catch (error) {
+      console.error('Error saving symptom data:', error);
+    }
+  };
+  
 
   // Function to filter symptoms based on search term
   const filteredSymptoms = symptoms.filter(symptom =>
@@ -119,7 +137,9 @@ function UserSymCheck() {
         
         {/* Inputs for sex, age, and age unit */}
         {diagnoses.length === 0 && !triageResult && (
-          <div className="mb-4 text-xl mx-auto">
+          <div className=" -translate-y-20 mb-4 text-xl mx-auto">
+             <label htmlFor="name" className="block mb-2 text-white">username:</label>
+            <input type="text" id="name" className="border rounded-full px-2 py-1 mb-2" value={username} onChange={(e) => setUsername(e.target.value)} />
             <label htmlFor="sex" className="block mb-2 text-white">Gender:</label>
             <input type="text" id="sex" className="border rounded-full px-2 py-1 mb-2" value={sex} onChange={(e) => setSex(e.target.value)} />
             <label htmlFor="age" className="block mb-2 text-white">Age:</label>
@@ -137,7 +157,7 @@ function UserSymCheck() {
           <input
             type="text"
             placeholder="Search symptoms..."
-            className="border rounded-full px-2 py-1 mb-4 mx-auto"
+            className="border -translate-y-20 rounded-full px-2 py-1 mb-4 mx-auto"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -145,16 +165,16 @@ function UserSymCheck() {
         
         {/* Button to initiate diagnosis */}
         {diagnoses.length === 0 && !triageResult && (
-          <button className="bg-black text-white rounded-full px-4 ml-4 py-2 mt-4 mx-auto" onClick={handleDiagnose}>Diagnose</button>
+          <button className="bg-black -translate-y-20 text-white rounded-full px-4 ml-4 py-2 mt-4 mx-auto" onClick={handleDiagnose}>Diagnose</button>
         )}
 
         {/* Display symptoms for selection */}
         {(searchTerm && !diagnoses.length && !triageResult) && (
-          <div className="grid grid-cols-3 gap-4  mx-auto">
+          <div className="grid grid-cols-3 gap-4 -translate-y-20  mx-auto">
             {filteredSymptoms.map((symptom) => (
               <div
                 key={symptom.id}
-                className={`p-2 border border-black border-solid   rounded cursor-pointer ${selected.includes(symptom.id) ? 'bg-black border-black text-white' : ''}`}
+                className={`p-2 border border-black border-solid rounded cursor-pointer ${selected.includes(symptom.id) ? 'bg-black border-black text-white' : ''}`}
                 onClick={() => handleSymptomSelect(symptom.id)}
               >
                 {symptom.name}
@@ -163,47 +183,45 @@ function UserSymCheck() {
           </div>
         )}
 
-        {/* Display diagnosis error */}
-        {diagnosisError && (
-          <div className="text-red-600 mt-2 mx-auto">{diagnosisError}</div>
-        )}
-<div  className="container mx-auto font-right relative z-10 text-black text-center flex  justify-start">{/* Display diagnoses */}
-        {diagnoses.length > 0 && (
-          <div className='text-black bg-white rounded p-4 mx-auto' style={{width: 'fit-content', margin: '5px'}}> 
-            <h2 className="mt-2 rounded-full font-bold px-32 mb-5 text-4xl">Diagnoses:</h2>
-            <ul>
-              {diagnoses.map((diagnosis, index) => (
-                <li className="text-xl" key={index}>{diagnosis.name}</li>
-              ))}
-            </ul>
-          </div>
-        )}
+        {/* Display diagnoses, triage result, and recommended specialist in 1 row with 3 columns */}
+        <div className="grid grid-cols-3 gap-4 mx-auto">
+          {/* Display diagnoses */}
+          {diagnoses.length > 0 && (
+            <div className='text-black bg-white rounded p-4' style={{ width: 'fit-content', margin: '5px' }}> 
+              <h2 className="mt-2 rounded-full font-bold mb-5 text-4xl">Diagnoses:</h2>
+              <ul>
+                {diagnoses.map((diagnosis, index) => (
+                  <li className="text-xl" key={index}>{diagnosis.name}</li>
+                ))}
+              </ul>
+            </div>
+          )}
 
-        {/* Display triage result */}
-        {triageResult && (
-          <div className='text-black bg-white rounded p-7 mx-auto' style={{width: 'fit-content', margin: '5px'}}>
-            <h2 className="text-4xl font-bold mb-5">Triage Result:</h2>
-            <p className="text-xl">Triage Level: {triageResult.triage_level}</p>
-            <p className="text-xl">Root Cause: {triageResult.root_cause}</p>
-            <p className="text-xl">Teleconsultation Applicable: {triageResult.teleconsultation_applicable ? 'Yes' : 'No'}</p>
-            <h3 className="text-4xl font-bold mt-5 mb-5">Serious Symptoms:</h3>
-            <ul>
-              {triageResult.serious.map((symptom) => (
-                <li className='text-xl' key={symptom.id}>{symptom.name}</li>
-              ))}
-            </ul>
-          </div>
-        )}
+          {/* Display triage result */}
+          {triageResult && (
+            <div className='text-black bg-white rounded p-7' style={{ width: 'fit-content', margin: '5px' }}>
+              <h2 className="text-4xl font-bold mb-5">Triage Result:</h2>
+              <p className="text-xl">Triage Level: {triageResult.triage_level}</p>
+              <p className="text-xl">Root Cause: {triageResult.root_cause}</p>
+              <p className="text-xl">Teleconsultation Applicable: {triageResult.teleconsultation_applicable ? 'Yes' : 'No'}</p>
+              <h3 className="text-4xl font-bold mt-5 mb-5">Serious Symptoms:</h3>
+              <ul>
+                {triageResult.serious.map((symptom) => (
+                  <li className='text-xl' key={symptom.id}>{symptom.name}</li>
+                ))}
+              </ul>
+            </div>
+          )}
 
-        {/* Display recommended specialist */}
-        {specialistInfo && (
-          <div className="text-black bg-white rounded p-4 mx-auto" style={{width: 'fit-content', margin: '5px'}}>
-            <h2 className="text-4xl font-bold mb-5 rounded-full">Recommended Specialist:</h2>
-            <p className="text-xl">Name: {specialistInfo.recommended_specialist.name}</p>
-            <p className="text-xl">Recommended Channel: {specialistInfo.recommended_channel}</p>
-          </div>
-        )}</div>
-        
+          {/* Display recommended specialist */}
+          {specialistInfo && (
+            <div className="text-black bg-white rounded p-4" style={{ width: 'fit-content', margin: '5px' }}>
+              <h2 className="text-4xl font-bold mb-5 rounded-full">Recommended Specialist:</h2>
+              <p className="text-xl">Name: {specialistInfo.recommended_specialist.name}</p>
+              <p className="text-xl">Recommended Channel: {specialistInfo.recommended_channel}</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -3,9 +3,7 @@
   import { useCallback } from "react";
   import { Link,BrowserRouter,Routes, Route, Router } from 'react-router-dom';
   
-  import Signup1 from './RegistrationComp/Signup1'
-  import Signup2 from "./RegistrationComp/Signup2";
-  import Signup3 from "./RegistrationComp/Signup3";
+  import Signup from './RegistrationComp/Signup'
   import Login from './RegistrationComp/Login'
   import Home from './Home'
   import UserBackground from "./User/userBackground";
@@ -27,7 +25,7 @@
   import DrugHistory from "./Pharma/DrugHistory";
   import PhCRUD from "./Pharma/PhCRUD";
   import PharmacyInventory from "./Pharma/PharmacyInventory";
-  import PaymentPage from "./User/PaymnetPage";
+  
 import './App.css';
 
   function App() {
@@ -38,9 +36,8 @@ import './App.css';
            <BrowserRouter>
                  <Routes>
                   <Route path="/" element={<Home/>}/>
-                  <Route path="/Signup1" element={<Signup1/>}/>
-                  <Route path="/Signup2" element={<Signup2/>}/>
-                  <Route path="/Signup3" element={<Signup3/>}/>
+                 
+                  <Route path="/Signup" element={<Signup/>}/>
                   <Route path="/Login" element={<Login/>}/>
                   <Route path="/userBackground" element={<UserBackground/>}/>
                   <Route path="/userLanding" element={<UserLanding/>}/>
@@ -61,7 +58,7 @@ import './App.css';
                   <Route path="/DrugHistory" element={<DrugHistory />}/>
                   <Route path="/phcrud" element={<PhCRUD/>}/>
                   <Route path="/PharmacyInventory" element={<PharmacyInventory/>}/>
-                  <Route path="/PaymentPage" element={<PaymentPage/>}/>
+               
                 
 
                  </Routes>
